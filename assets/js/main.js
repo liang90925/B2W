@@ -1,18 +1,22 @@
-$(function(){
+$(function() {
 	//Cache the window object
-	var $window =$(window);
+	var $window = $(window);
 
 	//Parallax background effect
-	$('section[data-type="background"]').each(function(){
+	$('section[data-type="background"]').each(function() {
 
-		var $bgobj = $(this); 
+		var $bgobj = $(this); //assign the background object;
 
-		$(window).scroll(function(){
-			var $ypos = -($window.scrolTop()/ $bgobj.data('speed'));
+		$(window).scroll(function() {
+			//scroll the background at var speed
+			//the ypos is a negative value because we're scrolling it UP!
+			var ypos = -($window.scrollTop()/ $bgobj.data('speed'));
 			
+			//Put together our final background position
 			var coords = '50%' + ypos + 'px';
 
-			$bgobj.css({backgroundposition: coords});
+			//move the background
+			$bgobj.css({ backgroundPosition: coords });
 		}); //end window
 	});
 });
